@@ -1,0 +1,11 @@
+fetch('/auth', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ token })
+})
+.then(r => r.json())
+.then(user => {
+  if (user.role === 'admin') {
+    showAdminPanel()
+  }
+})
